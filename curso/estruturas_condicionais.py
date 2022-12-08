@@ -1,4 +1,4 @@
-programas = int(input("Escolha qual programa deseja rodar [1]\n[2]\n[3] "))
+programas = int(input("Escolha qual programa deseja rodar [1]\n[2]\n[3]\n[4] "))
 
 
 # CNH -----------------------------------------------------------------------
@@ -51,5 +51,15 @@ elif programas == 3:
                 print("Saque realizado com sucesso")
             else:
                 print("Saldo insuficiente!")
+
+# if ternario ---------------------------------------------------------------
+elif programas == 4:
+    saldo = 10000
+    saque = float(input("Informe o valor do saque: "))
+    
+    status = "Sucesso" if saldo >= saque else "falha"
+
+    print(f"{status} ao realizar o saque!")
+
 else:
     print("Opção inválida!")
