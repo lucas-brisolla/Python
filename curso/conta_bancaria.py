@@ -16,10 +16,8 @@ extrato = ""
 numero_saques = 0
 LIMITE_SAQUES = 3
 
-
-
 while True:
-    opcao = input(menu)
+    opcao = int(input(menu))
 
     if opcao == 1:
         print("Depósito")
@@ -28,15 +26,18 @@ while True:
     elif opcao == 2:
         print("Saque")
         saque = int(input())
-        saque -= saldo
-        if saque != saque:
+        if saque > saldo:
+            print("Saldo insuficiente!")
+        else:
+            saldo -= saque
             numero_saques += 1
-        elif numero_saques == LIMITE_SAQUES or saque > 500:
-            print("Voce atingiu o Limite de saques")    
+            if numero_saques > LIMITE_SAQUES or saque > limite:
+                print("Você atingiu o limite de saques!")
     elif opcao == 3:
-        print("Extrato")
-    elif opcao == 4:
+        print("Extrato \n" + str(saldo))
+        # Adicionar código para gerar o extrato
+    elif opcao == 0:
         print("Obrigado por usar nosso banco, volte logo!")
         break
     else:
-        ("Opção inválida, tente novamente.")
+        print("Opção inválida, tente novamente.")
